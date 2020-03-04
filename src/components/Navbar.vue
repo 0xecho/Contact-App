@@ -8,14 +8,19 @@
                 <span class="font-weight-bold">App</span>
             </v-toolbar-title>
             <v-spacer></v-spacer>
-            <v-btn text link router to="/login">
-                <span>Sign-in</span>
-                <v-icon right>mdi-exit-to-app</v-icon>
-            </v-btn>
-            <v-btn text link router to="/logout">
-                <span>Sign-out</span>
-                <v-icon right>mdi-exit-to-app</v-icon>
-            </v-btn>
+            <template v-if="loggedIn()">
+                <v-btn text link router to="/logout">
+                    <span>Sign-out</span>
+                    <v-icon right>mdi-exit-to-app</v-icon>
+                </v-btn>
+            </template>
+            <template v-else>
+                <v-btn text link router to="/login">
+                    <span>Sign-in</span>
+                    <v-icon right>mdi-exit-to-app</v-icon>
+                </v-btn>
+            </template>
+            
         </v-app-bar>
         <v-navigation-drawer v-model="drawer" app color="grey lighten-5">
             <v-list>
@@ -125,6 +130,9 @@ export default {
     methods: {
         toggleDrawer : function() {
             this.drawer = ! this.drawer;
+        }, 
+        loggedIn: function() {
+            return localStorage.getItem('user') != null
         }
     }
 

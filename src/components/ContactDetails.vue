@@ -17,10 +17,14 @@
       <br>
       
       <v-row justify="center">
-        <div class="title">Elias Amha</div>
+        <div class="title">
+            {{ contact.name }}
+        </div>
       </v-row>
       
-      <!-- <v-row></v-row> TAGS -->
+      <v-row justify="center">
+        <v-chip class="ma-2" v-for="(tag,i) in tags" :key="i" color="green" @click="aqua(tag)">{{ tag }}</v-chip>
+      </v-row>
       <v-flex>
           
       <v-row justify="center" >  
@@ -89,6 +93,14 @@ export default {
     data() {
         return {
             tags : ["Friend", "Classmate"],
+            contact : {
+                name: "Elias Amha"
+            }
+        }
+    }, 
+    methods: {
+        aqua: (tag) => {   
+            alert(tag)
         }
     }
     

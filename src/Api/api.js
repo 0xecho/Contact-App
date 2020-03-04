@@ -1,6 +1,7 @@
 import Api from './init'
 
 import Auth from './Auth'
+import Contact from './Contact'
 
 function persist_user(token, username) {
     Api.defaults.headers.common['x-access-token'] = token
@@ -9,7 +10,7 @@ function persist_user(token, username) {
 
 let endpoints = { persist_user }
 
-endpoints = {...endpoints, ...Auth}
+endpoints = {...endpoints, ...Auth, ...Contact}
 
 
 export default endpoints
