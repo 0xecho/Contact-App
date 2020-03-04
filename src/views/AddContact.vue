@@ -199,7 +199,10 @@ export default {
             formdata.append('about',this.about)
             formdata.append('address',this.address)
             
-            Api.addContact(formdata).then(resp=>console.log(resp)).catch(err=>console.log(err))
+            Api.addContact(formdata).then(()=>{
+                this.$router.replace('/')
+            }
+            ).catch(err=>console.log(err))
         }
     },
 
