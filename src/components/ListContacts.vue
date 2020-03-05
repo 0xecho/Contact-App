@@ -84,7 +84,7 @@ export default {
   methods: {
     load_contacts : async (that) => {
         let contacts = [] 
-        await Api.getAllContacts().then(function(resp){
+        await Api.getAllContacts().then(function(resp){ // TODD - ADD FILTERS TO APICALL AND DATABASE
                    
             // resp.data.forEarch(function(contact){
             //     this.contacts.push(contact)

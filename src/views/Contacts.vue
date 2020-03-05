@@ -4,7 +4,7 @@
         <Navbar />
         
         <template v-if="is_details">
-            <ContactDetails />
+            <ContactDetails :id="contact_id"/>
         </template>
         <template v-else>
             <ListContacts :filters="filters"/>

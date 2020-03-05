@@ -12,5 +12,9 @@ export default {
     getAllContacts: function() {
         
         return Api.get("api/contacts")
+    },
+    getContacts: function(id) {
+        
+        return Api.get("api/contact/" + id)
     }
 }
