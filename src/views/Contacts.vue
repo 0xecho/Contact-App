@@ -43,17 +43,14 @@ export default {
     }
     else if(Object.entries(this.$route.query).length == true) {
         
-        let filters_unfiltered = this.$route.query.q
+        let filters_unfiltered = this.$route.query.filter        
         filters_unfiltered = filters_unfiltered.split(',')
         let filters = []
         filters_unfiltered.forEach(item=>{
             if(item.length)
                 filters.push(item)
         })
-        if(filters)
-        {   
-            console.log(filters);
-        }
+        this.filters = filters
     }
     
   },

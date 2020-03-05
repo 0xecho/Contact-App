@@ -19,11 +19,6 @@ const routes = [
     component: Home
   },
   {
-    path: '/filter',
-    name: 'Filters',
-    component: Contacts
-  },
-  {
     path: '/login',
     name: 'Login',
     component: Login

@@ -179,9 +179,9 @@ export default {
     methods: {
         addNewTag(){
             this.$nextTick(() => {
-            this.selected_tags.push(...this.search.split(","));
+            this.selected_tags.push(...this.search.split(","))
             this.$nextTick(() => {
-              this.search = "";
+              this.search = ""
             });
           });   
         }, 
@@ -204,9 +204,7 @@ export default {
             }
             ).catch(err=>console.log(err))
         }
-    },
-
-
+    },   
 }
 </script>
 

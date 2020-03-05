@@ -2,7 +2,8 @@
 
     
     <v-layout row wrap>
-        <template v-if="contacts.length > 0">
+    <!-- IF NO DATA PRINT NO HAVE NO CONTACTS YET -->
+        <template v-if="contacts.length > 0"> 
             <v-flex xs12 sm6 md3 lg2 >
                 <v-card flat class="text-center ma-5 ml-10 mr-10" width="auto">
                     <v-responsive class="pt4">
@@ -45,17 +46,28 @@
             </v-flex>
         </template>
         <template v-else> 
-            <v-row justify="center">
-                <v-flex>
-                    <v-col align="center" style="height: 100%">
-                        <v-progress-circular
-                          size="70"
-                          width="3"
-                          indeterminate
-                        ></v-progress-circular>
-                    </v-col>
-                </v-flex>
-            </v-row>
+            <template v-if="loading"> 
+                <v-row justify="center">
+                    <v-flex>
+                        <v-col align="center" style="height: 100%">
+                            <v-progress-circular
+                              size="70"
+                              width="3"
+                              indeterminate
+                            ></v-progress-circular>
+                        </v-col>
+                    </v-flex>
+                </v-row>
+            </template>
+            <template v-else> 
+                <v-row justify="center">
+                    <v-flex>
+                        <v-col align="center" style="height: 100%;" class="red" >
+                            NO CONTACTS FOUND PAGE MUST BE ADDED FIRST
+                        </v-col>
+                    </v-flex>
+                </v-row>
+            </template>
         </template>
     </v-layout>
 
@@ -71,32 +83,28 @@ export default {
       
       return {
           
-          contacts : [
-                        
-        ]
+        contacts : [], 
+        loading: true,
+        
         
     }
   },
   async mounted() {
     var that = this
     this.load_contacts(that)
+    
   },
   methods: {
     load_contacts : async (that) => {
         let contacts = [] 
-        await Api.getAllContacts().then(function(resp){ // TODD - ADD FILTERS TO APICALL AND DATABASE
-                   
-            // resp.data.forEarch(function(contact){
-            //     this.contacts.push(contact)
-            // })
-            
+        await Api.getAllContacts(that.filters).then(function(resp){ 
             for(var i=0;i<resp.data.length;i++)
             {
                 contacts.push(resp.data[i])
             }
 
         })
-        
+        that.loading = false
         contacts.forEach(contact=>{
             let name = contact.firstname + " " + contact.lastname
             let image = "http://127.0.0.1:8090/" + contact.image.split('/').slice(-2).join('/')
@@ -107,6 +115,9 @@ export default {
                 image: image,
                 route: route
             })
+            
+        }).catch(err=>console.log(err)).finally(()=>{
+            this.loading = false
         })
         
     }

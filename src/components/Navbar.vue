@@ -86,7 +86,7 @@
                     <v-list-item 
                         v-for="(category) in categories"
                         :key="category.text"
-                        link router :to="category.route"
+                        link :href="'/contacts'+category.route"
                     >
                         <v-list-item-title v-text="category.name"></v-list-item-title>
                         
@@ -107,16 +107,16 @@ export default {
             categories: [
                 { 
                     name: "Family",
-                    route: "/filter?family",
+                    route: "?filter=family",
                 },{ 
                     name: "Friends",
-                    route: "/filter?friends",
+                    route: "?filter=friends",
                 },{ 
                     name: "Class",
-                    route: "/filter?class",
+                    route: "?filter=class",
                 },{ 
                     name: "Office",
-                    route: "/filter?office",
+                    route: "?filter=office",
                 }
             ],
         }

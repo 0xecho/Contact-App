@@ -9,9 +9,17 @@ export default {
              }
         })
     },
-    getAllContacts: function() {
+    getAllContacts: function(filters) {     
         
-        return Api.get("api/contacts")
+        let filter_string = ""
+        if(filters.length){    
+            filter_string += "?filter="
+            for(let filter of filters)
+            {   
+                filter_string += filter + "," 
+            }
+        }
+        return Api.get("api/contacts"+filter_string)
     },
     getContacts: function(id) {
         
