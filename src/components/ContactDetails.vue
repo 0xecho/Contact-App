@@ -1,7 +1,7 @@
 <template>
   <v-container >
         <v-row>
-        <v-btn icon link href="/">
+        <v-btn icon link href="/contacts">
             <v-icon big>arrow_back</v-icon>
         </v-btn>
         </v-row>

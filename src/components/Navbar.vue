@@ -8,19 +8,10 @@
                 <span class="font-weight-bold">App</span>
             </v-toolbar-title>
             <v-spacer></v-spacer>
-            <template v-if="loggedIn()">
-                <v-btn text link router to="/logout">
-                    <span>Sign-out</span>
-                    <v-icon right>mdi-exit-to-app</v-icon>
-                </v-btn>
-            </template>
-            <template v-else>
-                <v-btn text link router to="/login">
-                    <span>Sign-in</span>
-                    <v-icon right>mdi-exit-to-app</v-icon>
-                </v-btn>
-            </template>
-            
+            <v-btn text link router to="/logout">
+                <span>Sign-out</span>
+                <v-icon right>mdi-exit-to-app</v-icon>
+            </v-btn>
         </v-app-bar>
         <v-navigation-drawer v-model="drawer" app color="grey lighten-5">
             <v-list>
@@ -41,19 +32,23 @@
                             <img src="/dummy.svg" alt="alt">
                         </v-avatar>                        
                     </v-flex>
+                    
+                    <p class="mt-3">Elias Amha</p>
                 </v-layout>
-               <!-- <v-list-item link >
+               <v-list-item link router to="/profile">
+                        <v-list-item-action>
+                            <v-icon left small>person</v-icon>
+                        </v-list-item-action>
                         <v-list-item-title>Profile</v-list-item-title>
-                </v-list-item> -->
+                </v-list-item>
                 
                 <v-list-group
                     no-action
-                    value="true"    
                 >
                     <template v-slot:activator>
                         <!-- <v-list-tile-content> -->
                             <v-list-item-action>
-                                <v-icon left small>person</v-icon>
+                                <v-icon left small>contacts</v-icon>
                             </v-list-item-action>
                             Contacts
 
@@ -67,7 +62,7 @@
                         
                     </v-list-item>
                     <v-list-item 
-                        link href="/"
+                        link href="/contacts"
                     >
                         <v-list-item-title>View All Contacts</v-list-item-title>
                         
@@ -77,7 +72,6 @@
                 
                 <v-list-group
                     no-action
-                    value="true"    
                 >
                     <template v-slot:activator>
                         <!-- <v-list-tile-content> -->

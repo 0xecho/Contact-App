@@ -9,7 +9,7 @@
         <v-col cols="3">
             <v-card flat>
                 <v-card-title primary-title>
-                <v-btn icon link href="/">
+                <v-btn icon link href="/contacts">
                     <v-icon big>arrow_back</v-icon>
                 </v-btn>
                     Add New Contact
