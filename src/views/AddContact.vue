@@ -3,7 +3,7 @@
 <v-container>
     <Navbar />
   <v-content grid-list-xs>
-            
+    <!--TODO GET ERRORS OPN SUBMUIT AND SHOW THEM HERER -->
     <v-row>
         <!-- <v-col cols="2"></v-col> -->
         <v-col cols="3">
@@ -92,7 +92,8 @@
     
     </v-row> 
     
-    <v-row>  <!-- TODO Add previosly registered tags to options list components/chips#in-selects -->
+    <v-row> 
+    <!-- TODO Add previosly registered tags to options list components/chips#in-selects -->
         <v-col cols="3"></v-col>
         <v-col>
             <v-flex xs12>
@@ -179,7 +180,7 @@ export default {
     methods: {
         addNewTag(){
             this.$nextTick(() => {
-            this.selected_tags.push(...this.search.split(","))
+            this.selected_tags.push(...this.search.toLowerCase().split(","))
             this.$nextTick(() => {
               this.search = ""
             });
@@ -194,7 +195,7 @@ export default {
             formdata.append('tags',this.selected_tags)
             formdata.append('firstname',this.firstname)
             formdata.append('lastname',this.lastname)
-            formdata.append('phone',this.phone)
+            formdata.append('phone_number',this.phone)
             formdata.append('email',this.email)
             formdata.append('about',this.about)
             formdata.append('address',this.address)

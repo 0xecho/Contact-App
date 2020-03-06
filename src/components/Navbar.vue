@@ -15,14 +15,6 @@
         </v-app-bar>
         <v-navigation-drawer v-model="drawer" app color="grey lighten-5">
             <v-list>
-                <!-- <v-list-tile >
-                    <v-list-tile-action>
-                        <v-icon left>category</v-icon>
-                    </v-list-tile-action>
-                    <v-list-tile-content>
-                        <v-list-tile-title>Categories</v-list-tile-title>
-                    </v-list-tile-content>
-                </v-list-tile> -->
                 <v-layout column align-center>
                     <v-flex class="mt-5">
                         <v-avatar
@@ -46,13 +38,10 @@
                     no-action
                 >
                     <template v-slot:activator>
-                        <!-- <v-list-tile-content> -->
-                            <v-list-item-action>
-                                <v-icon left small>contacts</v-icon>
-                            </v-list-item-action>
-                            Contacts
-
-                        <!-- </v-list-tile-content> -->
+                        <v-list-item-action>
+                            <v-icon left small>contacts</v-icon>
+                        </v-list-item-action>
+                        Contacts
                     </template>
                         
                     <v-list-item 

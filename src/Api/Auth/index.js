@@ -10,4 +10,20 @@ export default {
         })
         
     }, 
+    register: function(registrationData) {
+        console.log(registrationData);
+        
+        return Api.post("auth/register", registrationData)
+        
+    },
+    getUserInfo: function() {
+        return Api.get('/api/userinfo')
+    },
+    updateProfile: function(newUserData){
+        return Api.post('/api/updateProfile',newUserData,{
+            headers: { 
+                'content-type': 'multipart/form-data'
+             }
+        })
+    }
 }

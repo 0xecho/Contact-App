@@ -60,13 +60,7 @@
                 </v-row>
             </template>
             <template v-else> 
-                <v-row justify="center">
-                    <v-flex>
-                        <v-col align="center" style="height: 100%;" class="red" >
-                            NO CONTACTS FOUND PAGE MUST BE ADDED FIRST
-                        </v-col>
-                    </v-flex>
-                </v-row>
+                <NoContacts />
             </template>
         </template>
     </v-layout>
@@ -74,11 +68,15 @@
 </template>
 
 <script>
-// TODO: Fetch all contacts from database and display them
+import NoContacts from './NoContacts'
+
 import Api from '../Api/api'
 export default {
   name: 'Home',
   props: ["filters"],
+  components : {
+    NoContacts
+  },
   data () {
       
       return {
@@ -116,8 +114,6 @@ export default {
                 route: route
             })
             
-        }).catch(err=>console.log(err)).finally(()=>{
-            this.loading = false
         })
         
     }

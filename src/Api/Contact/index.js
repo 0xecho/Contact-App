@@ -24,5 +24,9 @@ export default {
     getContacts: function(id) {
         
         return Api.get("api/contact/" + id)
-    }
+    },
+    deleteContact: function(id) {
+        
+        return Api.get("api/contact/delete/" + id)
+    },
 }

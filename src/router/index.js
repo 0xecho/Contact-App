@@ -7,6 +7,8 @@ import Logout from '../views/Logout.vue'
 import Contacts from '../views/Contacts.vue'
 import AddContact from '../views/AddContact.vue'
 import _404 from '../views/404.vue'
+import Profile from '../views/Profile.vue'
+import EditContact from '../views/EditContact.vue'
 // import Filters from '../views/Filters.vue'
 // import ListContacts from '@/components/ListContacts' // TODO: JUST FOR TESTING ORGANIZE THIS LATER 
 
@@ -55,6 +57,16 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+  },
+  {
+    path: '/profile',
+    name: 'Profile',
+    component: Profile
+  },
+  {
+    path: '/contact/edit/:id',
+    name: 'EditContact',
+    component: EditContact
   },
   {
     path: '/*',
