@@ -2,7 +2,7 @@
   <v-app >
     <v-content >
     <v-container
-        class="fill-height grey lighten-3"
+        class="fill-height light-grey lighten-3"
         fluid
       >
        <v-row

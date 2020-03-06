@@ -18,7 +18,7 @@
        <v-row justify="center">
           <v-avatar
               size="300px"
-              color="blue"
+              color="light-blue"
           >
               <img :src="contact.image" alt="alt">
           </v-avatar>

@@ -1,6 +1,6 @@
 <template>
     <nav>
-        <v-app-bar flat app class="grey lighten-4">
+        <v-app-bar flat app class="light-grey lighten-4">
             <v-app-bar-nav-icon @click="toggleDrawer"></v-app-bar-nav-icon>
             <v-spacer></v-spacer>
             <v-toolbar-title>
@@ -19,13 +19,13 @@
                     <v-flex class="mt-5">
                         <v-avatar
                             size="100"
-                            color="blue"
+                            color="light-blue"
                         >
-                            <img src="/dummy.svg" alt="alt">
+                            <img :src="profile_picture" alt="alt">
                         </v-avatar>                        
                     </v-flex>
                     
-                    <p class="mt-3">Elias Amha</p>
+                    <p class="mt-3">{{ name }}</p>
                 </v-layout>
                <v-list-item link router to="/profile">
                         <v-list-item-action>
@@ -88,10 +88,15 @@
 </template>
 
 <script>
+
+import Api from '../Api/api'
+
 export default {
 
     data() {
         return {
+            name: "",
+            profile_picture: "",
             drawer: false,
             categories: [
                 { 
@@ -110,14 +115,24 @@ export default {
             ],
         }
     },
+    async created(){
+        this.getUserInfo()
+    },
     methods: {
         toggleDrawer : function() {
             this.drawer = ! this.drawer;
         }, 
         loggedIn: function() {
             return localStorage.getItem('user') != null
+        },
+        getUserInfo: async function() {
+            let info = (await Api.getUserInfo()).data
+            console.log(info);
+            
+            this.name = info.firstname + " " + info.lastname
+            this.profile_picture = "http://127.0.0.1:8090/" + info.profile_picture.split('/').slice(-2).join('/')
         }
-    }
+    }   
 
 }
 </script>
