@@ -119,7 +119,7 @@ export default {
             try {
                 TRUNCATE_FIELD_SIZE = ~~(event.offsetWidth/10)-5
             } catch (error) {
-                console.log(error);
+                // ERROR
             }
             let val = value.slice(0,TRUNCATE_FIELD_SIZE-3)
             return val+'...'

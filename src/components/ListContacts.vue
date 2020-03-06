@@ -107,7 +107,6 @@ export default {
             let name = contact.firstname + " " + contact.lastname
             let image = "http://127.0.0.1:8090/" + contact.image.split('/').slice(-2).join('/')
             let route = "/contact/" + contact._id
-            console.log(image)
             that.contacts.push({
                 name: name,
                 image: image,

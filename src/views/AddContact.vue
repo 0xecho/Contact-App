@@ -202,8 +202,7 @@ export default {
             
             Api.addContact(formdata).then(()=>{
                 this.$router.replace('/')
-            }
-            ).catch(err=>console.log(err))
+            })//CATCH ERR
         }
     },   
 }

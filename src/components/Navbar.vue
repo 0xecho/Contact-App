@@ -127,7 +127,6 @@ export default {
         },
         getUserInfo: async function() {
             let info = (await Api.getUserInfo()).data
-            console.log(info);
             
             this.name = info.firstname + " " + info.lastname
             this.profile_picture = "http://127.0.0.1:8090/" + info.profile_picture.split('/').slice(-2).join('/')
